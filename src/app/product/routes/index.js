@@ -1,21 +1,19 @@
 import express from "express"
-// import { getManyController } from "../controllers/index.js"
-import ProductFirebase from "../../../DAO/firebase/productFirebase.dao.js"
+import { getManyController,createOneController, getOneController, editOneController, deleteOneController, createOneMongoController, getManyMongoController, getOneMongoController } from "../controllers/index.js"
 
-const modelProduct = new ProductFirebase()
 const router = express.Router()
 
-router.get('/api/productos', async (req, res) => {
-    const data = await modelProduct.getMany()
-    res.json(data)
-})
+router.get('/api/producto',getManyController )
+
+router.get('/api/producto/:id',getOneController )
 
 // router.get('/productos/:id', getOne)
 
-// router.post('/productos/', createOne)
+router.post('/api/producto', createOneController)
 
-// router.put('/productos/:id', editOne)
+router.put('/api/producto/:id', editOneController)
 
-// router.delete('/productos/:id', deleteOne)
+router.delete('/api/producto/:id', deleteOneController)
+
 
 export default router

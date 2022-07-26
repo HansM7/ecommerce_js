@@ -1,5 +1,6 @@
 import admin from "firebase-admin"
-import serviceAccount from "./settings-firebase.json" assert {type: "json"}
+import { readFileSync } from "fs";
+const serviceAccount = JSON.parse(readFileSync("./src/DAO/config/settings-firebase.json"));
 
 const firebase = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

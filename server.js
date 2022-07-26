@@ -3,10 +3,9 @@ import express from 'express'
 
 const app = express()
 
-// const {routerProduct} = require('./src/product/routes/')
-// const {routerChat} = require('./src/chat/routes/')
 
 import routerProduct from './src/app/product/routes/index.js'
+import routerCart from './src/app/cart/routes/index.js'
 
 
 
@@ -28,7 +27,7 @@ app.get('/', (req,res) => {
 }) 
 
 app.use('/', routerProduct)
-// app.use('/', routerChat)
+app.use('/', routerCart)
 
 
 const port = process.env.PORT || 3000
